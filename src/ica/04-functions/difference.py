@@ -7,3 +7,4 @@ def smallest_diff(x, y, z):
     print(diff1, diff2, diff3, 'return value:', min_diff)
     return min_diff
 print(smallest_diff(32, 43, 90))
+
