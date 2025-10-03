@@ -6,16 +6,16 @@ Examples of while and for loops for the Iteration activity
 """
 
 
-#def print_every_other(x):
-    #"""
+def print_every_other(x):
+    """
     # Prints every other value from a given number down to zero
     # """
-    # while x >= 0:      # x is the loop variable
-        # print(x)
-        # x = x - 2
+    while x >= 0:      # x is the loop variable
+        print(x)
+        x = x - 2
 
     # when indentation stops, while loop is over
-    # print("Done!")
+    print("Done!")
 
 
 def print_every_fifth(x):
@@ -40,9 +40,10 @@ def square_user_nums():
     user_num = int(user_inp)
     while user_num >= 0:
         print(user_num, "squared is", user_num ** 2)
-        user_inp = input("Enter the next number (negative to quit): ")
-        user_num = int(user_inp)
-
+        # user_inp = input("Enter the next number (negative to quit): ")
+        # user_num = int(user_inp)
+# When commenting out the first pair this is the error: UnboundLocalError: cannot access local variable 'user_num' where it is not associated with a value
+# When commenting out the second pair there is no error
 
 def sum_to_n(top_num):
     """
