@@ -6,13 +6,25 @@ Examples of while and for loops for the Iteration activity
 """
 
 
-def print_every_other(x):
+#def print_every_other(x):
+    #"""
+    # Prints every other value from a given number down to zero
+    # """
+    # while x >= 0:      # x is the loop variable
+        # print(x)
+        # x = x - 2
+
+    # when indentation stops, while loop is over
+    # print("Done!")
+
+
+def print_every_fifth(x):
     """
-    Prints every other value from a given number down to zero
+    Prints every fifth value from a given number down to zero
     """
     while x >= 0:      # x is the loop variable
         print(x)
-        x = x - 2
+        x = x - 5
 
     # when indentation stops, while loop is over
     print("Done!")
@@ -77,6 +89,13 @@ if __name__ == '__main__':
     print_every_other(11)
     print("printEveryOther(4) does:")
     print_every_other(4)
+
+    print_seperator_line()
+    print("Sample calls to printEveryFifth:")
+    print("printEveryFifth(11) does:")
+    print_every_fifth(11)
+    print("printEveryFifth(4) does:")
+    print_every_fifth(4)
 
     print_seperator_line()
     print("Sample call to squareUserNums:")
