@@ -1,0 +1,35 @@
+import turtle
+window = turtle.Screen()
+my_turtle = turtle.Turtle()
+
+window.bgcolor("pink")
+my_turtle.color("white")
+my_turtle.shape("arrow")
+my_turtle.left(144)
+my_turtle.forward(100)
+my_turtle.left(144)
+my_turtle.forward(100)
+my_turtle.left(144)
+my_turtle.forward(100)
+my_turtle.left(144)
+my_turtle.forward(100)
+my_turtle.left(144)
+my_turtle.forward(100)
+
+my_turtle.up()
+my_turtle.goto(40, 40)
+my_turtle.down()
+
+my_turtle.color("navy")         #adding a second turtle to draw another star
+my_turtle.shape("arrow")
+my_turtle.left(144)
+my_turtle.forward(50)
+my_turtle.left(144)
+my_turtle.forward(50)
+my_turtle.left(144)
+my_turtle.forward(50)
+my_turtle.left(144)
+my_turtle.forward(50)
+my_turtle.left(144)
+my_turtle.forward(50)
+window.exitonclick() # this line closes the window when user clicks
