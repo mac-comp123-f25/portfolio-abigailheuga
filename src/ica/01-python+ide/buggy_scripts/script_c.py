@@ -1,6 +1,7 @@
 # This program converts celsius to fahrenheit
 
 cels_temp = 30
-fraction = 5/9
+fraction = 9/5
 fahr_temp = (cels_temp * fraction) + 32
 print(fahr_temp)
+# C to F fraction should be 9/5 instead of 5/9
