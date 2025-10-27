@@ -83,6 +83,10 @@ def daylight_hours(rise_hour, rise_min, set_hour, set_min):
     hour_diff = minute_diff / 60
     return hour_diff
 
+def lookup_by_date(Month, Day, table):
+    for row in table:
+        if row['Month'] == month and row['Day'] == day:
+            return row['SunSetHour']
 
 def main():
     print(lookup_phone('Fox, Susan', directory))
