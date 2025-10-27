@@ -97,7 +97,7 @@ def daylight_hours(rise_hour, rise_min, set_hour, set_min):
 def lookup_by_date(Month, Day, table):
     for row in table:
         if row['Month'] == month and row['Day'] == day:
-            return row['SunSetHour']
+    return row['SunSetHour']
 
 
 def main():
