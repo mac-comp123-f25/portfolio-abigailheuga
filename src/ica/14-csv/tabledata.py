@@ -56,6 +56,16 @@ def collect_by_building(building, table):
     return match_list
 
 
+def collect_by_letter(letter, table):
+    letter = letter.upper()
+    match_list = []
+    for row in table:
+        if row['letter'] == letter:
+            match_list.append(row)
+
+    return match_list
+
+
 def count_sunsets_before(hour_time, table):
     """
     Takes in the sunTable for the sunrise/sunset data, and counts how many
@@ -83,10 +93,12 @@ def daylight_hours(rise_hour, rise_min, set_hour, set_min):
     hour_diff = minute_diff / 60
     return hour_diff
 
+
 def lookup_by_date(Month, Day, table):
     for row in table:
         if row['Month'] == month and row['Day'] == day:
             return row['SunSetHour']
+
 
 def main():
     print(lookup_phone('Fox, Susan', directory))
