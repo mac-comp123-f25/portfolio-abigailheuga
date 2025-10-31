@@ -108,6 +108,25 @@ def select_by_month(month, table):
     return result
 
 
+def average_daylight_time(table):
+    total_daylight = 0
+
+    for row in table:
+        sunrise_hr = int(row['SunriseHour'])
+        sunrise_min = int(row['SunriseMinute'])
+        sunset_hr = int(row['SunsetHour'])
+        sunset_min = int(row['SunsetMinute'])
+
+        daylight = daylight_hours(sunrise_hr, sunrise_min, sunset_hr, sunset_min)
+        total_daylight += daylight
+
+    if len(table) == 0:
+        return 0
+
+    average_daylight = total_daylight / len(table)
+    return average_daylight
+
+
 def main():
     print(lookup_phone('Fox, Susan', directory))
     print(lookup_phone('Shoop, Libby', directory))

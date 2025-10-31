@@ -32,8 +32,16 @@ def get_state_living_wage(state, table):
     living wage table (a list of dictionaries), this looks up the given
     state's row dictionary, and returns the annual living wage for that state.
     """
-    # TODO: finish this function
-    pass
+    state = state.lower()
+
+    for row in table:
+        name = row['State'].lower()
+        abbrev = row.get('Abbreviation', ' ').lower()
+
+        if state == name or state == abbrev:
+            return float(row['AnnualLivingWage'])
+
+    return None
 
 
 def get_low_wage_states(table):
