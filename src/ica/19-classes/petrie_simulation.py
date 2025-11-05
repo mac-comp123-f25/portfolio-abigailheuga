@@ -4,6 +4,7 @@ Contains a simulation of the Petrie Multiplier that is based on classes.
 
 import random
 import math
+from tkinter.font import names
 
 
 class Employee:
@@ -19,8 +20,13 @@ class Employee:
         saves those values to instance variables. It also initializes the
         variable that holds the comments received by this employee to zero.
         """
-        # TODO: Implement this method then remove this line
+        self.gender = gender
+        self.will_comment = will_comment
+        self.comments_recieved = 0
         pass
+
+    def set_comenter_status(self, new_status):
+        self.will_comment = new_status
 
     def __str__(self):
         """
