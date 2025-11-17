@@ -6,10 +6,10 @@ def crop_picture(image, start_x, start_y, crop_width, crop_height):
 
     for x in range(crop_width):
         for y in range(crop_height):
-            color = image.getColor(x,y)
-            target_x = start_x + x
-            target_y = start_y + y
-            cropped.setColor(start_x, start_y, color)
+            original_x = start_x + x
+            original_y = start_y + y
+            color = image.getColor(original_x,original_y)
+            cropped.setColor(x, y, color)
 
     return cropped
 
