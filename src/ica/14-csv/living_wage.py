@@ -32,14 +32,14 @@ def get_state_living_wage(state, table):
     living wage table (a list of dictionaries), this looks up the given
     state's row dictionary, and returns the annual living wage for that state.
     """
-    state = state.lower()
+    state = state.strip.lower()
 
     for row in table:
-        name = row['State'].lower()
-        abbrev = row.get('Abbreviation', ' ').lower()
+        name = row['State'].strip().lower()
+        abbrev = row.get('Abbreviation', ' ').strip().lower()
 
         if state == name or state == abbrev:
-            return float(row['AnnualLivingWage'])
+            return row['AnnualLivingWage']
 
     return None
 
@@ -51,8 +51,13 @@ def get_low_wage_states(table):
     wage of $7.25. It returns a new sunTable, a list, containing the row
     dictionaries
     """
-    # TODO: finish this function
-    pass
+    low_wage_states = []
+
+    for row in table:
+        if row['Minimum Wage'] == 7.25:
+            low_wage_states.append(row)
+
+    return low_wage_states
 
 
 def get_expensive_states(table):
@@ -61,8 +66,10 @@ def get_expensive_states(table):
     this finds the 5 states with the highest living wage. It returns a list
     of the five state names
     """
-    # TODO: finish this function
-    pass
+
+    sorted_table = sorted(table, key=lambda row: row['AnnualLivingWage'], reverse=True)
+
+    return sorted_table[:5]
 
 
 def annual_wage(hourly_wage):
@@ -74,8 +81,11 @@ def annual_wage(hourly_wage):
     * Each worker works 40 hours per week (no part-time work!)
     * Each worker works 52 weeks per year (no vacation time!)
     """
-    # TODO: finish this function
-    pass
+
+    hours_per_year_per_person = 40 * 52
+    total_hours = 2 * hours_per_year_per_person
+
+    return hourly_wage * total_hours
 
 
 def get_gap_states(table):
@@ -88,8 +98,19 @@ def get_gap_states(table):
     earned at minimum wage.  Find the states where the annual salary at
     minimum wage is less than the living wage.
     """
-    # TODO: finish this function
-    pass
+
+    gap_states = []
+
+    for row in table:
+        min_wage = row['Minimum Wage']
+        living_wage = row['AnnualLivingWage']
+
+        annual_income = annual_wage(min_wage)
+
+        if annual_income < living_wage:
+            gap_states.append(row['State'])
+
+    return gap_states
 
 
 # Visualizing data
