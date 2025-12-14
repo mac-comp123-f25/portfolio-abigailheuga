@@ -23,7 +23,7 @@ if __name__ == '__main__':
     pic = Picture("../SampleImages/antiqueTractors.jpg")
     gray_pic = grayscale(pic)
 
-    weighted1 = weighted_scale(pic, 0.5, 0.25, 0.25)
+    weighted1 = weighted_scale(pic, 1, 1, 1)
     weighted2 = weighted_scale(pic, 0.2, 0.7, 0.1)
     weighted3 = weighted_scale(pic, 0.1, 0.1, 0.8)
 
