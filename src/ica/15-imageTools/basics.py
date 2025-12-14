@@ -1,37 +1,33 @@
 from src.ica.helpers.imageTools import *
 from src.ica.helpers.dummyWindow import *
 
-file_path = Picture("../SampleImages/mightyMidway.jpg")
-pic_copy = duplicatePicture(pic)
+def main():
+    pic = Picture("../SampleImages/mightyMidway.jpg")
 
-num_pixels = getWidth(img) * getHeight(img)
-print("Number of pixels in the image:", num_pixels)
+    w = pic.getWidth()
+    h = pic.getHeight()
+    num_pixels = w * h
+    print(num_pixels)
 
-pic_copy = duplicatePicture(pic)
+    new_pic = pic.copy()
+    red = (255, 0, 0)
 
-width = getWidth(pic_copy)
-height = getHeight(pic_copy)
+    corners = [
+        (0,0),
+        (w-1, 0),
+        (0, h-1),
+        (w-1, h-1)
+    ]
 
-setColor(getPixel(pic_copy, 0, 0), red)
-setColor(getPixel(pic_copy, 1, 0), red)
-setColor(getPixel(pic_copy, 0, 1), red)
-setColor(getPixel(pic_copy, 1, 1), red)
+    for (x, y) in corners:
+        new_pic.setColor(x, y, red)
 
-setColor(getPixel(pic_copy, width-1, 0), red)
-setColor(getPixel(pic_copy, width-2, 0), red)
-setColor(getPixel(pic_copy, width-1, 1), red)
-setColor(getPixel(pic_copy, width-2, 1), red)
+    out_path = "../SampleImages/mightyMidway-redCorners.jpg"
+    new_pic.save(out_path)
 
-setColor(getPixel(pic_copy, 0, height-1), red)
-setColor(getPixel(pic_copy, 1, height-1), red)
-setColor(getPixel(pic_copy, 0, height-2), red)
-setColor(getPixel(pic_copy, 1, height-2), red)
+    new_pic.explore()
 
-setColor(getPixel(pic_copy, width-1, height-1), red)
-setColor(getPixel(pic_copy, width-2, height-1), red)
-setColor(getPixel(pic_copy, width-1, height-2), red)
-setColor(getPixel(pic_copy, width-2, height-2), red)
+    keep_windows_open()
 
-savePicture(pic_copy, "mightyMidway-redCorners.jpg")
-
-explore(pic_copy)
+if __name__ == '__main__':
+    main()
